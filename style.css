@@ -5,28 +5,30 @@
 }
 
 body {
-    /*font*/
-    font-family: "Quintessential", serif;
-    font-weight: 100;
-    font-style: normal;
-    font-size: 0.8rem; /* 16px */
-    color: #ffffff;
+  font-family: "Quintessential", serif;
+  font-size: 0.8rem;
+  color: white;
 
-    /*background*/
-    background-image: url("./img/background.png");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
 
-    /*padding*/
-    padding: 1.5rem;
+  background-image: url("./img/background.png");
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+
+  padding: 1.5rem;
 }
 
-h1{
+/* ===== TITULO ===== */
+h1 {
   text-align: center;
 }
 
+/* ===== TABULEIRO ===== */
 .board-main-div {
   width: 100%;
   aspect-ratio: 1 / 1;
@@ -34,21 +36,101 @@ h1{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(3, 1fr);
+  gap: 0.5rem;
 
-  border: 3px solid white;
+  padding: 0.5rem;
   border-radius: 7px;
 
-  padding: 0.2rem;
-
-  gap: 0.5rem;
-  box-sizing: border-box;
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0 20px black;
 }
 
 .board-square {
-  aspect-ratio: 1 / 1;
-  border: 3px solid white;
-  border-radius: 7px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+/* ===== CÉLULAS ===== */
+.board-cell {
+  border: 1.5px solid white;
   display: flex;
-  align-items: center; 
+  align-items: center;
   justify-content: center;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: 0.15s;
+}
+
+.board-small-square-corner,
+.board-small-square-center {
+  background: rgba(0,217,255,0.2);
+}
+
+/* seleção da célula */
+.board-cell.selected {
+  background: rgba(0,217,255,0.5) !important;
+}
+
+/* ===== INPUTS ===== */
+.input-main-div {
+  width: 100%;
+  padding: 0.5rem;
+  border-radius: 7px;
+
+  background: rgba(0,0,0,0.3);
+  backdrop-filter: blur(3px);
+  box-shadow: 0 0 20px black;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0.5rem;
+}
+
+.input-btn {
+  aspect-ratio: 1 / 1;
+  border: 1.5px solid white;
+  border-radius: 7px;
+  background: rgba(255,255,255,0.2);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* botão selecionado */
+.input-btn.selected {
+  background: rgba(0,217,255,0.6);
+  transform: scale(1.1);
+}
+
+/* ===== CLEAN ===== */
+.input-clean-everything {
+  border: 1.5px solid white;
+  border-radius: 7px;
+  padding: 0.8rem;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  background: rgba(255,255,255,0.2);
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+
+h3{
+  font-size: 0.7rem;
+  height: 1px;
 }
