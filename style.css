@@ -70,7 +70,7 @@ h1 {
 
 /* seleção da célula */
 .board-cell.selected {
-  background: rgba(0,217,255,0.5) !important;
+  background: rgba(0,217,255,0.2) !important;
 }
 
 /* ===== INPUTS ===== */
